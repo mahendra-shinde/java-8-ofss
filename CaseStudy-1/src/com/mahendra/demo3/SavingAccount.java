@@ -11,7 +11,7 @@ public class SavingAccount extends Account {
 
 	@Override
 	public double calculate() {
-		return balance * (4/100/12);
+		return balance * (4.0/100/12);
 	}
 	
 	
