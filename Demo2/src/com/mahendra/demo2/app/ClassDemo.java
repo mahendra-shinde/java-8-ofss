@@ -6,9 +6,12 @@ public class ClassDemo {
 	public static void main(String[] args) {
 		Account acc1 = new Account(101,"Vijay Mallya",230000D);
 		Account acc2 = new Account(102,"Mehul Chowksy",231100D);
-		
+
+		Account acc3 = new Account();
 		acc1.print();
 		acc2.print();
+		
+		acc3.print();
 	}
 
 }
