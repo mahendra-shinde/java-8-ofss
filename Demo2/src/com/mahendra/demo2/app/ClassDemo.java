@@ -12,6 +12,8 @@ public class ClassDemo {
 		acc2.print();
 		
 		acc3.print();
+		//Static Methods SHOULD be referred from CLASS instead of Object
+		System.out.println("Account count: "+Account.getCountAccounts());
 	}
 
 }
