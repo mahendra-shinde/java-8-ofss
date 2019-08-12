@@ -7,6 +7,11 @@ public class CurrentAccount extends Account {
 		super(accountNo, holderName, balance);
 		this.interestDue = interestDue;
 	}
+
+	@Override
+	public double calculate() {
+		return balance* (interestDue/100/12);
+	}
 	
 	
 }
