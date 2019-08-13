@@ -12,7 +12,10 @@ public class AccountDAO {
 	public AccountDAO(DataStore store) {
 		this.store = store;
 	}
-	
+	//TODO:
+	// 1. public void save(Account acc)
+	// 2. public void changeHolderName(int acc, String newname)
+	// 3. public void delete(int accNo)
 	public Account findByAccountNo(int accountNo) {
 		Account acc = store.getAccounts().get(accountNo);
 		if(acc == null ) {
