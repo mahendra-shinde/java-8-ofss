@@ -4,9 +4,12 @@ package com.mahendra.demo3;
 //And replace all references to AccountNotActiveException with AccountNotActiveException
 public class ThrowingAnException {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		System.out.println("Transfer ::::");
 		transfer(12000,1002,1004);//try-catch #3
+		
+		Thread.sleep(10000);
+		
 		System.out.println("End of main");
 	}
 	
