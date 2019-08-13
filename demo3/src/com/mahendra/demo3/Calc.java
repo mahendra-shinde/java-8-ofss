@@ -13,11 +13,11 @@ public class Calc {
 		// Assumption #1: A second argument is passed to main
 		// Assumption #2: second argument is too INTEGER
 		n2 = Integer.parseInt(args[1]);
-		}catch(ArrayIndexOutOfBoundsException ex) {
-			System.out.println("Too few arguments");
-		}catch(NumberFormatException ex) {
+		}catch(ArrayIndexOutOfBoundsException | NumberFormatException ex) {
+			System.out.println("Invalid arguments");
+		}/*catch(NumberFormatException ex) {
 			System.out.println(ex.getMessage());
-		}
+		}*/
 		int sum = n1+n2;
 		System.out.println("Sum :"+sum);
 	}
