@@ -15,4 +15,18 @@ public abstract class Card {
 	public String toString() {
 		return cardNo+" "+expiry;
 	}
+
+	public Account getAccount() {
+		return account;
+	}
+
+	public int getCardNo() {
+		return cardNo;
+	}
+
+	public String getExpiry() {
+		return expiry;
+	}
+	
+	
 }

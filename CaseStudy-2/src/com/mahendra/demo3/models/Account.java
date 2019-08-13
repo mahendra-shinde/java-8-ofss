@@ -2,7 +2,7 @@ package com.mahendra.demo3.models;
 
 import com.mahendra.demo3.InterestCalculator;
 
-public abstract class Account implements InterestCalculator {
+public abstract class Account implements InterestCalculator, Comparable<Account> {
 	protected int accountNo;
 	protected String holderName;
 	protected double balance;
@@ -25,6 +25,17 @@ public abstract class Account implements InterestCalculator {
 		}
 		else
 			return false;
+	}
+	
+	@Override
+	public int compareTo(Account o) {
+		/// return this.accountNo - o.accountNo;
+		if(this.accountNo > o.accountNo) {
+			return 1;
+		}else if(this.accountNo < o.accountNo) {
+			return -1;
+		}
+		return 0;
 	}
 	
 	public String toString() {
