@@ -1,32 +1,38 @@
 package demo6;
 
-public class NewThread {
+import java.util.concurrent.*;
+
+public class NewThread3 {
 
 	public static void main(String[] args) {
-		Repeater rp1 = new Repeater("Hello World");
-		Repeater rp2 = new Repeater("Hello India");
+		MyRepeater2 rp1 = new MyRepeater2("Hello World");
+		MyRepeater2 rp2 = new MyRepeater2("Hello India");
 
-		rp1.start(); // Register "rp1" as Thread in JVM's Task Scheduler
-		rp2.start();
-
+		//Executor Service to create TWO threads
+		ExecutorService service = Executors.newFixedThreadPool(2);
+		service.execute(rp1);
+		service.execute(rp2);
+		
 		try {
 			Thread.sleep(10000);
 			rp1.stopThread();
 			rp2.stopThread();
+			service.shutdown(); // Close all threads
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 
 }
-
-class Repeater extends Thread {
+//Creating a TASK for Thread
+class MyRepeater2 implements Runnable {
 
 	private String text;
 	private boolean stop = false;
 
-	public Repeater(String text) {
+	public MyRepeater2(String text) {
 		super();
 		this.text = text;
 	}
@@ -38,6 +44,7 @@ class Repeater extends Thread {
 	public void run() {
 		int counter = 1;
 		while (!stop) {
+			System.out.println(" --- " + Thread.currentThread().getName()+" --- ");
 			System.out.println(counter + " " + text);
 
 			try {

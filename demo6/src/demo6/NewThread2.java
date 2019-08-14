@@ -1,13 +1,13 @@
 package demo6;
 
-public class NewThread {
+public class NewThread2 {
 
 	public static void main(String[] args) {
-		Repeater rp1 = new Repeater("Hello World");
-		Repeater rp2 = new Repeater("Hello India");
+		MyRepeater rp1 = new MyRepeater("Hello World");
+		MyRepeater rp2 = new MyRepeater("Hello India");
 
-		rp1.start(); // Register "rp1" as Thread in JVM's Task Scheduler
-		rp2.start();
+		new Thread(rp1).start(); // Assign TASK to a THREAD and Launch Thread
+		new Thread(rp2).start();
 
 		try {
 			Thread.sleep(10000);
@@ -20,13 +20,13 @@ public class NewThread {
 	}
 
 }
-
-class Repeater extends Thread {
+//Creating a TASK for Thread
+class MyRepeater implements Runnable {
 
 	private String text;
 	private boolean stop = false;
 
-	public Repeater(String text) {
+	public MyRepeater(String text) {
 		super();
 		this.text = text;
 	}
