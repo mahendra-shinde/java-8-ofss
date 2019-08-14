@@ -16,6 +16,9 @@ public class ReadCSV {
 		try {
 			String line = br.readLine();
 			while(line!=null) {
+			// Skip EMPTY lines
+			if(line.trim().length()==0)
+				line = br.readLine();
 			books.add(extract(line));
 			line = br.readLine();
 			}
@@ -25,7 +28,6 @@ public class ReadCSV {
 			e.printStackTrace();
 		}
 		
-		
 		System.out.println("List of books: ");
 		for(Book b : books) {
 			System.out.println(b.getTitle()+" "+b.getAuthor());
@@ -33,7 +35,7 @@ public class ReadCSV {
 		
 	}
 	
-	public static Book extract(String line) {
+	public static Book extract(String line) {	
 		String[] fields = line.split(",");
 		int bookId = Integer.parseInt(fields[0]);
 		String title = fields[1].trim();

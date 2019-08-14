@@ -1,6 +1,9 @@
 package com.mahendra.demo5;
 
-public class Book {
+import java.io.Serializable;
+
+//Mark this class for Serialization and De-Serialization
+public class Book implements Serializable {
 	private int bookId;
 	private String title;
 	private String author;
