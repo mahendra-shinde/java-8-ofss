@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    </head>
+<body>
+    <form id="frm1">
+        Enter principal : <input id="p" /><br/>
+        Rate of Interest : <input id="r1" type="radio" name="roi" value="4.5"/>4.5 
+        <input id="r2" type="radio" name="roi" value="4.7"/>4.7
+        <input id="r3" type="radio" name="roi" value="5.1"/>5.1<br/>
+        Duration in months: <select id="duration">
+            <option value="13">13</option>
+            <option value="25">25</option>
+            <option value="61">61</option>
+        </select>
+        <input type="button" value="calc" onclick="calc()"/>
+        <span id="ans"/>
+    </form>
+    <script>
+        function calc(){
+            var p = document.forms['frm1'].elements['p'].value;
+            var r = readInterest();
+            var d = document.forms['frm1'].elements['duration'].value;
+            console.log("P: "+p);
+            console.log("R:"+r);
+            console.log("D:"+d);
+            var ans = p* (r/100/12) * d;
+            document.getElementById("ans").innerHTML="Interest "+ans;
+        }
+        function readInterest(){
+            var r1 = document.forms['frm1'].elements['r1'];
+            var r2 = document.forms['frm1'].elements['r2'];
+            var r3 = document.forms['frm1'].elements['r3'];
+            if(r1.checked == true){
+                return r1.value;
+            }else if(r2.checked == true){
+                return r2.value;
+            }            
+            else{
+                return r3.value;
+            }
+        }
+    </script>
+</body>
+</html>

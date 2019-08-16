@@ -1,0 +1,24 @@
+body{
+
+    margin:0px;
+    padding: 0px;
+    background-color: lightblue;
+}
+h1, h2, h3 {
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: chocolate;
+    padding: 5px;
+}
+a{
+    text-decoration: none;
+    border-top: 2px solid black;
+    border-bottom: 4px double black;   
+}
+/* Every ODD row inside TBODY inside TABLE */
+ TBODY:ODD {
+    background-color :orange;
+}
+ TBODY:EVEN {
+    background-color: lightgreen;
+}

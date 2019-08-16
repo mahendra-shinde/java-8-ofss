@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    
+</head>
+<body>
+    <script>
+        var x = 100;
+    </script>
+    <h1> Hello World!</h1>
+    <script>
+        document.write(x);
+        console.log("LOG "+x);
+    </script>
+    <script>
+        // Define a function with ZERO parameters
+        // functionName.length would return number of declared parameters
+    function sum(){
+        var ans = 0;
+        //functionName.arguments.length would return number of actual arguments passed.
+        for(i=0;i< sum.arguments.length; i++ ){
+            ans += sum.arguments[i];
+        }
+        return ans;
+    }    
+    alert(sum(10,2,13));
+    
+    function changeTo(x){
+        document.getElementsByTagName('h1')[0].innerHTML=x;
+    }
+    </script>
+    <button onclick="changeTo('Hello India!')">Change 1</button>
+    <button onclick="changeTo('Hello World!')">Change 2</button>
+</body>
+</html>

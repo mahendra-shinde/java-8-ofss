@@ -1,0 +1,63 @@
+<html>
+    <h3>HTML Forms</h3>
+    <p>
+        HTML form allows input from end-user to be submitted to a server side script.
+        Example: Collect a 'text' with name 'q' and sending to URL
+        `https://google.co.in/search` will result in invoking "search" script on
+        Google Search engine and passing the text with name 'q' as an parameter.
+
+        HTML Form Inputs
+        Default:        text        Single line text input field
+                        password    Textfield with masked character 
+                                    either * or DOT
+        
+                        radio       Radio button (Always in GROUP)
+                        checkbox    Check Box (Always in GROUP)
+                                    Within a group only ONE radio can be selected
+                                    but any number of  checkboxes can selected
+                                    
+                        button      A Generic Button, which requires JS to perform action
+                        submit      A Button with pre-defined action "Form Submission"
+                        reset       A Button with pre-defined action "Form Reset"
+
+                        hidden      A Field no visible to end-users. 
+            
+            SELECT with OPTION:     Drop down list with choices.
+            TEXTAREA:               Multi line text field
+    </p>
+
+    <form action="https://google.co.in/search">
+        Search : <input type="text" name="q"/>
+        <input type="submit" value="Submit"/>
+
+    </form>
+    <form>
+        <label for="nn">Enter your name</label> 
+         <input name="fn"/><input name="nn"/><br/>
+        Gender : <input type="radio" name="gender" value="m" />Male
+        <input type="radio" name="gender" value="f" checked=true />Female<br/>
+        Age : <input type="range"  min="18" max="99" /><br/>
+        EMail : <input type="email" name="email"/><br/>
+        Facilities: <input type="checkbox" name="extras" value="NB"/>Net Banking<br/>
+        <input type="checkbox" name="extras" value="MB"/>Mobile Banking<br/>
+        <input type="checkbox" name="extras" value="DC"/>Debit Card<br/>
+        <input type="checkbox" name="extras" value="CC"/>Credit Card<br/>
+        <input type="submit" value="Apply"/>
+
+        <input type="range" list="tickmarks">
+
+<datalist id="tickmarks">
+  <option value="0" label="0%">
+  <option value="10">
+  <option value="20">
+  <option value="30">
+  <option value="40">
+  <option value="50" label="50%">
+  <option value="60">
+  <option value="70">
+  <option value="80">
+  <option value="90">
+  <option value="100" label="100%">
+</datalist>
+    </form>
+</html
