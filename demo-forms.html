@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        class Account{
+            constructor(accNo, name, balance){
+                this.accNo=accNo;
+                this.name=name;
+                this.balance = balance;
+            }
+            toString(){
+                return "<tr><td>"+this.accNo+"</td><td>"+this.name+"</td><td>"+this.balance+"</td></tr>";
+            }
+        }
+        var accountList = [];
+        function add(frm){
+            let accno = parseInt(frm.accno.value);
+            let name = frm.name.value;
+            let balance = parseFloat(frm.balance.value);
+            account = new Account(accno,name,balance);
+            console.log("Adding account "+account.accNo);
+            accountList.push(account);
+            //invoke updateDisplay     
+            updateDisplay();
+        }
+        function updateDisplay(){
+            data = "";
+            for(x of accountList){
+                console.log('' +x);
+                data += x.toString();
+            }
+            tbody = document.getElementById('tbody');
+            tbody.innerHTML = data;
+        }
+    </script>
+</head>
+<body>
+    <h2> Account management </h2>
+    <form onsubmit="return false">
+        Account Number : <input type="text" name="accno" required /><br/>
+        Holder name: <input type="text" name="name" required /><br/>
+        Balance : <input type="number" name="balance" required /><br/>
+        <input type="button" value="add" onclick="add(this.form)" />
+    </form>
+    <table>
+        <thead>
+        <tr>
+            <th>Acc No</th>
+            <th>Holder name</th>
+            <th>Balance</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+</body>
+</html>
