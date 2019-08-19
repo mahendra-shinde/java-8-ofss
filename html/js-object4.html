@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <script>
+        class Employee {
+            //All real fields are prefixed with _
+            constructor(firstName, lastName) {
+                this._firstName = firstName;
+                this._lastName = lastName;
+            }
+            //Getter for FirstName field
+            get firstName() {
+                return this._firstName.toLowerCase();
+            }
+            set firstName(fn) {
+                console.log("Setting the value " + fn)
+                this._firstName = fn.toLowerCase();
+            }
+        }
+        ///Variable to current scope   
+        let emp = new Employee("Mahendra", "Shinde");
+        var x = emp.firstName;
+        console.log(x);
+        emp.firstName = 'XyyZ';
+        console.log(emp.firstName);
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

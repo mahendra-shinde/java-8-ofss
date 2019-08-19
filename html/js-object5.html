@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <script>
+        class Employee {
+            //All real fields are prefixed with _
+            constructor(firstName, lastName) {
+                this._firstName = firstName;
+                this._lastName = lastName;
+            }
+            //Getter for FirstName field
+            get firstName() {
+                return this._firstName.toLowerCase();
+            }
+            set firstName(fn) {
+                console.log("Setting the value " + fn)
+                this._firstName = fn.toLowerCase();
+            }
+            
+        }
+        ///Variable to current scope   
+        var data = [ ];
+        data[0] = new Employee("Jason","Statham");
+        data[1] =new Employee("Dwayne","Johnason");
+        data[2]=new Employee("Robert","Downey Jr.");
+        data[3] =  {"firstName":"Xyz" };
+        //Defined an arrow function to accept OBJECT x and
+        //Return the FullName after merging TWO fields
+        fullname = (x) => x._firstName+ " " + (x._lastName || '' );
+        for(x of data){
+            //Invoking the function
+            console.log(fullname(x));
+        }        
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

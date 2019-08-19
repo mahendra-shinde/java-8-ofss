@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <script>
+        class Employee {
+            //All real fields are prefixed with _
+            constructor(firstName, lastName) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+            }
+          
+            
+        }
+        ///Variable to current scope   
+        var data = [ ];
+        data[0] = new Employee("Jason","Statham");
+        data[1] =new Employee("Dwayne","Johnason");
+        data[2]=new Employee("Robert","Downey Jr.");
+        
+        //Defined an arrow function to accept OBJECT x and
+        //Return the FullName after merging TWO fields
+        fullname = (x) => x.firstName+ " " + (x.lastName || '' );
+        toUpper = (x) => new Employee(x.firstName.toUpperCase(), 
+            x.lastName.toUpperCase());
+           
+        for(x of data){
+            //Invoking the function
+            console.log(fullname(x));
+        }
+
+        var list2 = data.map(toUpper);
+        for(y of list2){
+            console.log(fullname(y));
+        }
+        var list3 = data.map(x=>x.firstName);
+        for(z of list3){
+            console.log(z);
+        }
+
+        // var data2= [
+        //         {"firstName":"Xyz" },
+        //         { "firstName":"Pqr"},
+        //         {"firstName":"Xyz" }
+        //  ];
+
+        // for(x in data2){
+        //     console.log(data2[x].firstName);
+        // } 
+        
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
