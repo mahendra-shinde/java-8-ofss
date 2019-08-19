@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    
+</head>
+<body>
+    <script>
+    class Account {
+        constructor(accNo, holderName, balance){
+        this.accNo = accNo;
+        this.holderName = holderName;
+        this.balance = balance;
+        }
+    }    
+    class Interest{
+        constructor(name, amount){
+            this.name = name;
+            this.amount = amount;
+        }
+    }
+    var data = [];
+    data[0] = new Account(101,"Rohit",12000);
+    data[1]= new Account(102,"Virat",23000);
+    data[2]=new Account(103,"Shikhar",15900);
+    
+    data2 = data.map(x =>  x.balance * 4/100);
+
+    for(x of data2){
+        console.log("earned interest "+ x);
+    }
+    data3 = data.map(x => new Interest(x.holderName, x.balance*4/100));
+    for(x of data3){
+        console.log(x.name+ " earned interest "+ x.amount);
+    }
+    </script>
+</body>
+</html>
