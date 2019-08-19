@@ -1,32 +1,53 @@
 <html>
-    <script>
-    function validate(frm){
-        console.log(frm.nn.value);
-        console.log(frm.gender.value);
-        console.log(frm.email.value);
-        //To stay on current page
-        return false;
+<script>
+    function printError(field,message){
+        var target = document.getElementById(field);
+        target.innerHTML = message;
     }
-    </script>
+    function validate(frm) {
+        var msg = "";
+        if (frm.fn.value.trim().length < 1) {
+            printError('fnerror','Please enter first name');
+            msg += "Please enter first name\n";
+        }
+        if (frm.ln.value.trim().length < 1) {
+            printError('nnerror','Please enter last name');
+            msg += "Please enter last name\n";
+        }
+        if (frm.gender.value.length==0) {
+            msg += "Please select gender\n";
+        }
+        if (frm.email.value.trim().length < 3) {
+            msg += "Please enter valid email\n";
+        }
+        //To stay on current page
+        if (msg.length > 0) {
+            alert(msg);
+            return false;
+        }
+    }
+</script>
 
 <form action="https://google.co.in/search" onsubmit="return false">
-    Search : <input type="text" name="q"/>
-    <input type="submit" value="Submit"/>
+    Search : <input type="text" name="q" />
+    <input type="submit" value="Submit" />
 </form>
 
-    <h3>HTML Forms</h3>
-   
-    <form onsubmit="return validate(this)" novalidate>
-        <label for="nn">Enter your name</label> 
-         <input name="fn"/><input name="nn"/><br/>
-        Gender : <input type="radio" name="gender" value="m" />Male
-        <input type="radio" name="gender" value="f" checked=true />Female<br/>
-        Age : <input type="range"  min="18" max="99" /><br/>
-        EMail : <input type="email" name="email"/><br/>
-        Facilities: <input type="checkbox" name="extras" value="NB"/>Net Banking<br/>
-        <input type="checkbox" name="extras" value="MB"/>Mobile Banking<br/>
-        <input type="checkbox" name="extras" value="DC"/>Debit Card<br/>
-        <input type="checkbox" name="extras" value="CC"/>Credit Card<br/>
-        <input type="submit" value="Apply"/>
-    </form>
+<h3>HTML Forms</h3>
+
+<form onsubmit="return validate(this)" novalidate>
+    Enter your name:
+    <input name="fn" /> <span id="fnerror"></span> 
+    <input name="ln" /><span id="nnerror"></span> <br />
+    Gender : <input type="radio" name="gender" value="m" />Male
+    <input type="radio" name="gender" value="f" />Female<br />
+    Age : <input type="range" min="18" max="99" /><br />
+    EMail : <input type="email" name="email" /><br />
+    Facilities: <input type="checkbox" name="extras" value="NB" />Net Banking<br />
+    <input type="checkbox" name="extras" value="MB" />Mobile Banking<br />
+    <input type="checkbox" name="extras" value="DC" />Debit Card<br />
+    <input type="checkbox" name="extras" value="CC" />Credit Card<br />
+    <input type="submit" value="Apply" />
+</form>
+
 </html
