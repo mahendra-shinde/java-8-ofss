@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <script>
+    //Building an Object [Type3]
+    //Using constructor function
+    function person(firstName, lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.print = function(){
+            console.log("Name is: "+this.firstName+" "+this.lastName);
+            document.write("<br/>Name is: "+this.firstName+" "+this.lastName);
+        }
+    }
+
+    // Internally uses '=new Object()' to create a new clone of 'Object'
+    //And then add new properties
+    var x = new person("Mahendra","Shinde");
+    var y = new person("Mahendra","Shinde");
+
+    //Adding a new method in object prototype of person
+    x.__proto__.uppercase = function(){
+        this.firstName= this.firstName.toUpperCase();
+        this.lastName = this.lastName.toUpperCase();
+    }
+    </script>
+
+</head>
+<body>
+    <script>
+        x.print();
+        y.print();
+        x.uppercase();
+        x.print();
+        y.uppercase();
+        y.print();
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <script>
+    //Building an Object [Type1]
+    var x = new Object(); //New clone of an Object
+    x.firstName = "Mahendra"; //Add few properties
+    x.lastName = "Shinde"; //Add few properties
+    x.print = function(){
+        console.log("Name is: "+this.firstName+" "+this.lastName);
+        document.write("<br/>Name is: "+this.firstName+" "+this.lastName);
+    }
+
+    //Building an Object [Type2] 
+    //Using JSON Syntax
+    var y = { firstName:"Mahendra", lastName:"Shinde",
+    print: function (){
+        console.log("Name is: "+this.firstName+" "+this.lastName);
+        document.write("<br/>Name is: "+this.firstName+" "+this.lastName);
+    } 
+    };
+    </script>
+
+</head>
+<body>
+    <script>
+        x.print();
+        y.print();
+        document.write("<br/>Are they Same? "+ (x==y));
+        document.write("<br/>Are they Same? "+ (x===y)); 
+    </script>
+</body>
+</html>
