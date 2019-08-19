@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    
+</head>
+<body>
+    <script>
+    class Account {
+        constructor(accNo, holderName, balance){
+        this.accNo = accNo;
+        this.holderName = holderName;
+        this.balance = balance;
+        }
+        toString(){
+            return "[" + this.accNo+"] "
+                +this.holderName+" Balance: "
+                +this.balance;
+        }
+    }    
+
+    var data = [];
+    data[0] = new Account(101,"Rohit",12000);
+    data[1]= new Account(102,"Virat",23000);
+    data[2]=new Account(103,"Shikhar",15900);
+    
+    //With Arrow function
+    data.sort((a,b)=> a.balance-b.balance  );    
+    
+    for(x of data){
+        console.log(x);
+    }
+
+    // Without Arrow function
+    function compareByName(a,b){
+        return a.holderName.localeCompare(b.holderName);
+    }
+    data.sort(compareByName);
+    //Using Array function at new "forEach" function
+    data.forEach(x => console.log(""+x));
+    
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    
+</head>
+<body>
+    <script>
+    class Account {
+        constructor(accNo, holderName, balance){
+        this.accNo = accNo;
+        this.holderName = holderName;
+        this.balance = balance;
+        }
+        toString(){
+            return "[" + this.accNo+"] "
+                +this.holderName+" Balance: "
+                +this.balance;
+        }
+    }    
+
+    var data = [];
+    data[0] = new Account(101,"Rohit",12000);
+    data[1]= new Account(102,"Virat",23000);
+    data[2]=new Account(103,"Shikhar",15900);
+  
+    //Creating a wrapper around Promise
+    //To allow Parameter 'accNo'
+    var searchAccount = function(accNo){
+        //Real PROMISE function with TWO possible outcomes
+        // variable 'resolve' and 'reject' are function references
+        return new Promise(function(resolve,reject){
+            //Test the condition
+        if(accNo >=101 && accNo<=103){
+            //favourable condition invoke the 'resolve' method
+            resolve(accNo);
+        }else{
+            //And, infavourable condition, invoking reject function
+            reject(new Error("Account Number "+accNo+" is invalid"));
+        }   
+    });
+    }
+    //target function
+    function findByAccNo(accNo){
+       for(x of data){
+           if(x.accNo == accNo){
+               console.log("Account holder: "+x.holderName);
+           }
+       }
+    }
+
+   //Use promise to invoke 'findByAccNo' function 
+   var acc = searchAccount(101).then(findByAccNo).catch(function(err){
+        console.log("Error :"+err.message);
+   });
+    </script>
+</body>
+</html>

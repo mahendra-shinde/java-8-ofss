@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<script>
+var P = function(a){
+ return new Promise(function (resolve, reject) {
+    if (a) {
+        setTimeout(function(){
+            resolve(a);
+        }, 3000);
+    } else {
+        reject(a +" is invalid");
+    }
+});
+};
+
+var curriedDoWork = function(text) {
+    return function(data) {
+        console.log(data + text);
+    }
+};
+
+P(10).then(curriedDoWork('text'))
+.catch(function(err){
+    console.log(err);
+}
+);
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    
+</head>
+<body>
+    <script>
+    class Account {
+        constructor(accNo, holderName, balance){
+        this.accNo = accNo;
+        this.holderName = holderName;
+        this.balance = balance;
+        }
+        toString(){
+            return "[" + this.accNo+"] "
+                +this.holderName+" Balance: "
+                +this.balance;
+        }
+    }    
+
+    var data = [];
+    data[0] = new Account(101,"Rohit",12000);
+    data[1]= new Account(102,"Virat",23000);
+    data[2]=new Account(103,"Shikhar",15900);
+  
+    function findByAccNo(accNo){
+       for(x of data){
+           if(x.accNo == accNo){
+               return x;
+           }
+       }
+       throw new Error("Account "+accNo+" not found");
+    }
+
+    try{    
+    a1 = findByAccNo(101);
+    console.log("found "+a1.holderName);
+    a2 = findByAccNo(201);
+    console.log("found "+a2.holderName);
+    }catch(error){
+        console.log(error.message);
+    }
+
+    
+    </script>
+</body>
+</html>
